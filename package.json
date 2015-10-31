@@ -1,0 +1,22 @@
+{
+  "name": "node-authentication-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "czaas",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "jsonwebtoken": "^5.4.1",
+    "mongoose": "^4.2.3",
+    "morgan": "^1.6.1"
+  },
+  "devDependencies": {
+    "bcrypt": "^0.8.5"
+  }
+}
