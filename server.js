@@ -1,5 +1,5 @@
 var express = require('express'),
-	app = express(),
+	app = require('./app.js'),
 	bodyParser = require('body-parser'),
 	morgan = require('morgan'),
 	mongoose = require('mongoose'),
@@ -7,7 +7,8 @@ var express = require('express'),
 
 var jwt = require('jsonwebtoken'),
 	config = require('./config.js'),
-	User = require('./models/user');
+	User = require('./models/user'),
+	apiRoutes = require('./api-router.js');
 
 var port = process.env.PORT || 8080;
 
@@ -19,10 +20,13 @@ app.use(bodyParser.json());
 
 app.use(morgan('dev')); // logs requests to the console
 
+app.use('/api', apiRoutes);
+
 app.get('/', function(req, res){
 	res.send('Hello! The API is at http://localhost:' + port + '/api');
 });
 
+// initial setup
 app.get('/setup', function(req, res){
 	var userPass = 'password11String';
 
